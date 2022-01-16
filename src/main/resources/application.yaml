@@ -4,16 +4,20 @@ server:
 spring:
   application:
     name: eureka-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: study
+    password: study12
 
 eureka:
   server:
-    response-cache-update-interval-ms: 3000
+    enable-self-preservation: false
   instance:
     hostname: localhost
     prefer-ip-address: true
   client:
-    register-with-eureka: false #????
-#    registry-fetch-interval-seconds: 30
-    fetch-registry: false #????
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
